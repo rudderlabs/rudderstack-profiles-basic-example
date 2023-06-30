@@ -37,7 +37,7 @@ Enter your information into the prompts (example is for Snowflake):
 
 ```shell script
 Select a warehouse. (Enter s for Snowflake): s
-Enter Connection Name: your_connection_name <rs-profiles-test>
+Enter Connection Name: your_connection_name <rs-profiles-test> # you will need this to ref your connection later
 Enter target:  (default:dev):  # Just press enter, leaving it to default
 Enter account: your_account.your_region <abc12345.us-east-1>
 Enter warehouse: your_warehouse_name
