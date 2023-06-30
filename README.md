@@ -4,7 +4,7 @@ RudderStack Profile Builder (PB) is a YAML-based tool that allows you to create 
 # Getting Started
 ## Clone This Repo 
 ```shell script
-https://github.com/rudderstack/rudderstack-profiles-basic-example.git
+https://github.com/rudderlabs/rudderstack-profiles-basic-example.git
 ```
 Make sure the items listed below are in your .gitignore file for hygiene and security purposes:
 ```
