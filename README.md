@@ -1,5 +1,5 @@
 # RudderStack Profile Builder                                                                                                                  
-RudderStack Profile Builder (PB) is a YAML-based tool that allows you to create customer 360 profiles by stitching data together from multiple sources right in your Snowflake data warehouse (Redshift coming soon). PB can stitch user identities and user features from multiple sources including RudderStack ETL, Fivetran or other ETL tools. The resulting customer 360 table can be used to send customer data to downstream tools such as email marketing, chat, or CRM along with many other destinations using RudderStack reverse ETL. Profile Builder is also very flexible and can also be used to create profiles for users, companies, sessions or any other entity you choose. 
+RudderStack Profile Builder (PB) is a YAML-based tool that allows you to create customer 360 profiles by stitching data together from multiple sources right in your Snowflake data warehouse (Redshift coming soon). PB can stitch user identities and user features from multiple sources, including RudderStack ETL, Fivetran, or other ETL tools. The resulting customer 360 tables can be used to send customer data to downstream tools such as email marketing, chat, or CRM, along with many other destinations using RudderStack reverse ETL. Profile Builder is also very flexible and can also be used to create profiles for users, companies, sessions, or any other entity you choose. 
 
 # Getting Started
 ## Clone This Repo 
@@ -49,7 +49,7 @@ Enter role: your_role
 Append to /Users/<user_name>/.pb/siteconfig.yaml? [y/N]
 yes
 ```
-After installing PB and configuring your connections, you need to update inputs.yaml with names of your source tables. Navigate to the inputs.yaml file and update the ```table:``` information for both tables. Keep the table names and only change the schema and database if you want to use the sample data.
+After installing PB and configuring your connections, you need to update inputs.yaml with the names of your source tables. Navigate to the inputs.yaml file and update the ```table:``` information for both tables. Keep the table names and only change the schema and database if you want to use the sample data.
 
 ```shell script
 
@@ -63,7 +63,7 @@ After installing PB and configuring your connections, you need to update inputs.
 
 Notice the names are mentioned as edge_sources in profiles.yaml and define specs for creating ID stitcher/feature table. This has been done for you.
 
-ID Stitcher Example: edge_sources and user_id sticher in profiles.yaml
+ID Stitcher Example: edge_sources and user_id stitcher in profiles.yaml
 ```shell script
 models:
   - name: user_id_stitcher
@@ -104,7 +104,7 @@ You can use this command to generate the SQL that will run in your warehouse, an
 pb compile
 ```
 
-If there are no errors, use this command to create the output table in your warehouse. If using the sample data this should execute in about 60 seconds:
+If there are no errors, use this command to create the output table in your warehouse. If using the sample data, this should execute in about 60 seconds:
 
 ```shell script
 pb run
@@ -129,7 +129,7 @@ select * from YOUR_DB.YOUR_SCHEMA.USER_PROFILE limit 5
 | rid168ce3120988c676d8c3604c0971d632 | 2023-06-30 18:50:11.685 | 2022-11-28 | 11  | 8  |
 
 ### What User IDs were stitched to make the profile?
-The query below will provide a list of profile IDs connected to the other identifiers that were stitched together to create the profiles. In the example table below you will see 3 anonymous_ids, 1 user_id, and 1 email as the IDs. Note the email record was added for illustration purposes and is not in the sample dataset.
+The query below will provide a list of profile IDs connected to the other identifiers that were stitched together to create the profiles. In the example table below, you will see 3 anonymous_ids, 1 user_id, and 1 email as the IDs. Note the email record was added for illustration purposes and is not in the sample dataset.
 
 ```sql
 select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 5
