@@ -1,0 +1,35 @@
+# For detailed documentation visit: https://rudderlabs.github.io/pywht/
+
+# If you ran pb insert
+# use the database and schema configured during your setup (pb connection init) along with the table names below for Tracks and Identifies: 
+# (EXAMPLE_DB.EXAMPLE_SCHEMA.SAMPLE_RS_DEMO_IDENTIFIES)
+# (EXAMPLE_DB.EXAMPLE_SCHEMA.SAMPLE_RS_DEMO_TRACKS)
+
+#If you want to user your own fully qualifed table names ensure they are accesible via the credentials you specified during (pb connection init)
+
+
+inputs:
+  - name: rsIdentifies
+    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_IDENTIFIES # change this to your fully qualifed input table name 
+    occurred_at_col: timestamp
+    ids:
+      - select: "user_id"
+        type: user_id
+        entity: user
+      - select: "anonymous_id"
+        type: anonymous_id
+        entity: user
+      - select: "lower(email)"
+        type: email
+        entity: user
+
+  - name: rsTracks
+    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_TRACKS # change this to your fully qualifed input table name 
+    occurred_at_col: timestamp
+    ids:
+      - select: "user_id"
+        type: user_id
+        entity: user
+      - select: "anonymous_id"
+        type: anonymous_id
+        entity: user

@@ -1,0 +1,40 @@
+# For detailed documentation visit: https://rudderlabs.github.io/pywht/
+
+models:
+  - name: user_id_stitcher
+    model_type: id_stitcher
+    model_spec:
+      validity_time: 24h # 1 day
+      entity_key: user
+      edge_sources:
+        - from: inputs/rsIdentifies
+        - from: inputs/rsTracks
+
+  - name: user_profile #name of profiles view that will be created in your warehouse 
+                       #view is created after (pb run) at the location specified during (pb init connection)
+    model_type: feature_table_model 
+    model_spec:
+      validity_time: 24h # 1 day
+      entity_key: user
+      vars:
+        - entity_var:
+            name: first_seen
+            select: min(timestamp::date)
+            from: inputs/rsTracks
+        - entity_var:
+            name: last_seen #all attribute must be specified under "features:" below to write to profiles table -- notice this one is not
+            select: max(timestamp::date)
+            from: inputs/rsTracks
+        - entity_var:
+            name: user_lifespan
+            select: last_seen - first_seen
+            description: Life Time Value of a customer
+        - entity_var:
+            name: days_active
+            select: count(distinct timestamp::date)
+            from: inputs/rsTracks
+            description: No. of days a customer was active
+      features:
+        - first_seen
+        - user_lifespan
+        - days_active
