@@ -132,7 +132,7 @@ select * from YOUR_DB.YOUR_SCHEMA.USER_PROFILE limit 5
 The query below will provide a list of profile IDs connected to the other identifiers that were stitched together to create the profiles. In the example table below you will see 3 anonymous_ids, 1 user_id, and 1 email as the IDs. Note the email record was added for illustration purposes and is not in the sample dataset.
 
 ```sql
-select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 6
+select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 5
 ```
 
 | USER_MAIN_ID | OTHER_ID | OTHER_ID_TYPE | VALID_AT |
@@ -151,7 +151,7 @@ select USER_MAIN_ID as RUDDER_USER_ID,other_id_type,count (distinct other_id) as
 from profiles_demo_db.rs_profiles_7_1.USER_ID_STITCHER
 group by USER_MAIN_ID,other_id_type
 order by user_main_id asc
-limit 6
+limit 5
 ```
 | USER_MAIN_ID                        | OTHER_ID     | COUNT_OF_IDs |
 |-------------------------------------|--------------|--------------|
