@@ -1,5 +1,5 @@
 # RudderStack Profile Builder                                                                                                                  
-RudderStack Profile Builder (PB) is a YAML-based tool that allows you to create customer 360 profiles by stitching data together from multiple sources right in your Snowflake data warehouse (Redshift coming soon). PB can stitch user identities and user features from multiple sources, including RudderStack ETL, Fivetran, or other ETL tools. The resulting customer 360 tables can be used to send customer data to downstream tools such as email marketing, chat, or CRM, along with many other destinations using RudderStack reverse ETL. Profile Builder is also very flexible and can also be used to create profiles for users, companies, sessions, or any other entity you choose. 
+RudderStack Profile Builder (PB) is a YAML-based tool that allows you to create customer 360 profiles by stitching data together from multiple sources right in your Snowflake data warehouse (Redshift coming soon). PB can stitch user identities and user features from multiple sources, including RudderStack ETL, Fivetran, or other ETL tools. The resulting customer 360 tables can be used to send customer data to downstream tools such as email marketing, chat, or CRM, along with many other destinations using RudderStack Reverse ETL. Profile Builder is also very flexible and can also be used to create profiles for users, companies, sessions, or any other entity you choose. 
 
 # Getting Started
 ## Clone This Repo 
@@ -54,10 +54,10 @@ After installing PB and configuring your connections, you need to update inputs.
 ```shell script
 
   - name: rsIdentifies
-    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_IDENTIFIES # change this to your fully qualifed input table name 
+    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_IDENTIFIES # change this to your fully qualified input table name 
 
   - name: rsTracks
-    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_TRACKS # change this to your fully qualifed input table name 
+    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_TRACKS # change this to your fully qualified input table name 
     occurred_at_col: timestamp
 ```
 
@@ -87,7 +87,7 @@ Feature Table Example: in profiles.yaml
             from: inputs/rsTracks
 ```
 
-If you are planning to use the sample data, run the command below. It will insert two sample tables into the database and schema you defined during setup. (Be sure you are in the PB directory in your terminal first):
+If you plan to use the sample data, run the command below. It will insert two sample tables into the database and schema you defined during setup. (Be sure you are in the PB directory in your terminal first):
 ```shell script
 pb insert
 ```
@@ -104,7 +104,7 @@ You can use this command to generate the SQL that will run in your warehouse, an
 pb compile
 ```
 
-If there are no errors, use this command to create the output table in your warehouse. If using the sample data, this should execute in about 60 seconds:
+If there are no errors, you can use this command to create the output table in your warehouse. If using the sample data, this should execute in about 60 seconds:
 
 ```shell script
 pb run
@@ -129,7 +129,7 @@ select * from YOUR_DB.YOUR_SCHEMA.USER_PROFILE limit 5
 | rid168ce3120988c676d8c3604c0971d632 | 2023-06-30 18:50:11.685 | 2022-11-28 | 11  | 8  |
 
 ### What User IDs were stitched to make the profile?
-The query below will provide a list of profile IDs connected to the other identifiers that were stitched together to create the profiles. In the example table below, you will see 3 anonymous_ids, 1 user_id, and 1 email as the IDs. Note the email record was added for illustration purposes and is not in the sample dataset.
+The query below will provide a list of profile IDs connected to the other identifiers stitched together to create the profiles. The table below shows 3 anonymous_ids, 1 user_id, and 1 email as the Other IDs are stitched into 1 profile ID. Note: The email record was added for illustration purposes and is not in the sample dataset.
 
 ```sql
 select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 5
@@ -145,7 +145,7 @@ select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 5
 
 
 ### How Many IDs were part of the user profile?
-This query shows the number of IDs that were used to make each profile. Notice USER ```rid00e6b900e23df0c9aba09928ffcd0d31``` had 24 different ```anonymous_ids``` and 1 ```user_id``` that went into the profile creation.
+This query shows the number of IDs used to make each profile. Noticrid00e6b900e23df0c9aba09928ffcd0d31``` had 24 different ```anon`` and 1 ```user_id```into the profile creation.
 ```sql
 select USER_MAIN_ID as RUDDER_USER_ID,other_id_type,count (distinct other_id) as "OTHER_ID_COUNT"
 from profiles_demo_db.rs_profiles_7_1.USER_ID_STITCHER
@@ -163,7 +163,7 @@ limit 5
 | rid0386089d15c9669fec23c6835fdf2ac6 | user_id      | 1            |
 
 ## Conclusion
-You are now up and running with Profiles! When used with the RudderStack Platform, these profiles can be used to create audiences and sync customer360 data to tools like Salesforce, Braze, HubSpot, or Klaviyo. They can also be used for paid advertising audience creation in Google Ads, Facebook, or other tools. Lastly, they can be used for other personalizations like: search powered by Algolia, chat powered by Intercom, or subscriptions managed by Stripe — along with MANY more applications.
+You are now up and running with Profiles! When used with the RudderStack Platform, these profiles can create audiences and sync customer360 data to tools like Salesforce, Braze, HubSpot, or Klaviyo. They can also be used for paid advertising audience creation in Google Ads, Facebook, or other tools. Lastly, they can be used for other personalizations like search powered by Algolia, chat powered by Intercom, or subscriptions managed by Stripe — along with MANY more applications. 
 
-## Learn More
+Learn More
 Profile Builder (PB) <a href="https://rudderlabs.github.io/pywht">public docs</a>
