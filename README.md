@@ -87,7 +87,7 @@ Feature Table Example: in profiles.yaml
             from: inputs/rsTracks
 ```
 
-If you plan to use the sample data, run the command below. It will insert two sample tables into the database and schema you defined during setup. (Be sure you are in the PB directory in your terminal first):
+If you plan to use the sample data, run the command below. It will insert two sample tables into the database and schema you defined during setup. (Be sure you are in the project directory in your terminal first):
 ```shell script
 pb insert
 ```
@@ -145,7 +145,7 @@ select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 5
 
 
 ### How Many IDs were part of the user profile?
-This query shows the number of IDs used to make each profile. Noticrid00e6b900e23df0c9aba09928ffcd0d31``` had 24 different ```anon`` and 1 ```user_id```into the profile creation.
+This query shows the number of IDs used to make each profile. ```id00e6b900e23df0c9aba09928ffcd0d31``` has 24 different ```anonymous_ids``` and 1 ```user_id```that went into the profile creation.
 ```sql
 select USER_MAIN_ID as RUDDER_USER_ID,other_id_type,count (distinct other_id) as "OTHER_ID_COUNT"
 from profiles_demo_db.rs_profiles_7_1.USER_ID_STITCHER
@@ -165,5 +165,5 @@ limit 5
 ## Conclusion
 You are now up and running with Profiles! When used with the RudderStack Platform, these profiles can create audiences and sync customer360 data to tools like Salesforce, Braze, HubSpot, or Klaviyo. They can also be used for paid advertising audience creation in Google Ads, Facebook, or other tools. Lastly, they can be used for other personalizations like search powered by Algolia, chat powered by Intercom, or subscriptions managed by Stripe — along with MANY more applications. 
 
-Learn More
+## Learn More
 Profile Builder (PB) <a href="https://rudderlabs.github.io/pywht">public docs</a>
