@@ -129,7 +129,7 @@ select * from YOUR_DB.YOUR_SCHEMA.USER_PROFILE limit 5
 | rid168ce3120988c676d8c3604c0971d632 | 2023-06-30 18:50:11.685 | 2022-11-28 | 11  | 8  |
 
 ### What User IDs were stitched to make the profile?
-The query below will provide a list of profile IDs connected to the other identifiers stitched together to create the profiles. The table below shows 3 anonymous_ids, 1 user_id, and 1 email as the Other IDs are stitched into 1 profile ID. Note: The email record was added for illustration purposes and is not in the sample dataset.
+The query below will provide a sample of the Other IDs connected together to create the user profiles. The table below shows 3 anonymous_ids, 1 user_id, and 1 email as the Other IDs that were stitched into 1 profile ID. Note: The email record was added for illustration purposes and is not in the sample dataset. The next query will show the total number of Other IDs stitched together.
 
 ```sql
 select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 5
@@ -145,7 +145,7 @@ select * from YOUR_DB.YOUR_SCHEMA.USER_ID_STITCHER limit 5
 
 
 ### How Many IDs were part of the user profile?
-This query shows the number of IDs used to make each profile. ```id00e6b900e23df0c9aba09928ffcd0d31``` has 24 different ```anonymous_ids``` and 1 ```user_id```that went into the profile creation.
+This query shows the total number of IDs used to make each profile. ```id00e6b900e23df0c9aba09928ffcd0d31``` has 24 different ```anonymous_ids``` and 1 ```user_id```that went into the profile creation.
 ```sql
 select USER_MAIN_ID as RUDDER_USER_ID,other_id_type,count (distinct other_id) as "OTHER_ID_COUNT"
 from profiles_demo_db.rs_profiles_7_1.USER_ID_STITCHER
