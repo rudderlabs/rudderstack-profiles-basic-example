@@ -1,7 +1,7 @@
 # RudderStack Profile Builder                                                                                                                  
 RudderStack Profile Builder (PB) is a YAML-based tool that allows you to create customer 360 profiles by stitching data together from multiple sources right in your Snowflake data warehouse (Redshift coming soon). PB can stitch user identities and user features from multiple sources including RudderStack ETL, Fivetran or other ETL tools. The resulting customer 360 table can be used to send customer data to downstream tools such as email marketing, chat, or CRM along with many other destinations using RudderStack reverse ETL. Profile Builder is also very flexible and can also be used to create profiles for users, companies, sessions or any other entity you choose. 
 
-
+# Getting Started
 ## Clone This Repo 
 ```shell script
 https://github.com/rudderstack/rudderstack-profiles-basic-example.git
