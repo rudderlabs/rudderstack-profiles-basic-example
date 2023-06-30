@@ -87,18 +87,18 @@ Feature Table Example: in profiles.yaml
             from: inputs/rsTracks
 ```
 
-If you are planning to use the sample data, run the command below. It will insert two sample tables into the database and schema you defined during setup:
+If you are planning to use the sample data, run the command below. It will insert two sample tables into the database and schema you defined during setup. (Be sure you are in the PB directory in your terminal first):
 ```shell script
 pb insert
 ```
 
-Use this command to validate that your project will be able to access the warehouse specified in ```pb init connections``` and create objects in that warehouse.
+Use this command to validate that your project will be able to access the warehouse specified in ```pb init connection``` and create objects in that warehouse.
 
 ```shell script
 pb validate access
 ```
 
-You can use this command to generate the SQL that will run in your warehouse. which will also tell you if there are syntax errors in your model YAML file.
+You can use this command to generate the SQL that will run in your warehouse, and this will also tell you if there are syntax errors in your model YAML file.
 
 ```shell script
 pb compile
@@ -161,6 +161,9 @@ limit 6
 | rid0379ebf6a4cc85cedbf436efe9bb422d | anonymous_id | 30           |
 | rid0386089d15c9669fec23c6835fdf2ac6 | anonymous_id | 24           |
 | rid0386089d15c9669fec23c6835fdf2ac6 | user_id      | 1            |
+
+## Conclusion
+You are now up and running with Profiles! When used with the RudderStack Platform, these profiles can be used to create audiences and sync customer360 data to tools like Salesforce, Braze, HubSpot, or Klaviyo. They can also be used for paid advertising audience creation in Google Ads, Facebook, or other tools. Lastly, they can be used for other personalizations like: search powered by Algolia, chat powered by Intercom, or subscriptions managed by Stripe — along with MANY more applications.
 
 ## Learn More
 Profile Builder (PB) <a href="https://rudderlabs.github.io/pywht">public docs</a>
