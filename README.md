@@ -165,5 +165,7 @@ limit 5
 ## Conclusion
 You are now up and running with Profiles! When used with the RudderStack Platform, these profiles can create audiences and sync customer360 data to tools like Salesforce, Braze, HubSpot, or Klaviyo. They can also be used for paid advertising audience creation in Google Ads, Facebook, or other tools. Lastly, they can be used for other personalizations like search powered by Algolia, chat powered by Intercom, or subscriptions managed by Stripe — along with MANY more applications. 
 
-## Learn More
-Profile Builder (PB) <a href="https://rudderlabs.github.io/pywht">public docs</a>
+## Learn More about RudderStack
+<a href="https://www.rudderstack.com/product/profiles/"> RudderStack Profile Builder </a>   
+<a href="https://www.rudderstack.com/warehouse-native-cdp/"> RudderStack Warehouse Native CDP </a>   
+<a href="https://rudderlabs.github.io/pywht"> Profile Builder (PB) Techincal Documentation </a>
