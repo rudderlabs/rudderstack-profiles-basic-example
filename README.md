@@ -169,3 +169,8 @@ You are now up and running with Profiles! When used with the RudderStack Platfor
 <a href="https://www.rudderstack.com/product/profiles/"> RudderStack Profile Builder </a>   
 <a href="https://www.rudderstack.com/warehouse-native-cdp/"> RudderStack Warehouse Native CDP </a>   
 <a href="https://rudderlabs.github.io/pywht"> Profile Builder (PB) Techincal Documentation </a>
+
+## Questions?
+Join RudderStack <a href="https://www.rudderstack.com/join-rudderstack-slack-community/"> Slack Community </a> and post your question in the #profile-builder channel.
+
+
