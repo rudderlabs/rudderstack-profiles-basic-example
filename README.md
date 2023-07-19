@@ -54,10 +54,10 @@ After installing PB and configuring your connections, you need to update inputs.
 ```shell script
 
   - name: rsIdentifies
-    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_IDENTIFIES # change this to your fully qualified input table name 
+    table: <your_warehouse_db>.<your_warehouse_schema>.<table_name> # change this to your fully qualified input table name 
 
   - name: rsTracks
-    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_TRACKS # change this to your fully qualified input table name 
+    table: <your_warehouse_db>.<your_warehouse_schema>.<table_name> # change this to your fully qualified input table name 
     occurred_at_col: timestamp
 ```
 
