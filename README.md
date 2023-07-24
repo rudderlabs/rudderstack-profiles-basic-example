@@ -168,7 +168,12 @@ You are now up and running with Profiles! When used with the RudderStack Platfor
 ## Learn More about RudderStack
 <a href="https://www.rudderstack.com/product/profiles/"> RudderStack Profile Builder </a>   
 <a href="https://www.rudderstack.com/warehouse-native-cdp/"> RudderStack Warehouse Native CDP </a>   
-<a href="https://rudderlabs.github.io/pywht"> Profile Builder (PB) Techincal Documentation </a>
+
+## More Advanced Uses
+<a href="https://github.com/rudderlabs/rudderstack-profiles-shopify-features/"> Shopify Features </a>  
+<a href="https://github.com/rudderlabs/rudderstack-profiles-shopify-churn"> Shopify Churn Features </a>  
+<a href="https://github.com/rudderlabs/rudderstack-profiles-ecommerce-features"> General eCommerce Features </a>  
+<a href="https://github.com/rudderlabs/rudderstack-profiles-stripe-features"> Stripe Features </a>  
 
 ## Questions?
 Join RudderStack <a href="https://www.rudderstack.com/join-rudderstack-slack-community/"> Slack Community </a> and post your question in the #profile-builder channel.
