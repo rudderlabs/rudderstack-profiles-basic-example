@@ -29,6 +29,9 @@ models:
             name: user_lifespan
             select: last_seen - first_seen
             description: Life Time Value of a customer
+            dependencies:
+              - first_seen
+              - last_seen
         - entity_var:
             name: days_active
             select: count(distinct timestamp::date)
