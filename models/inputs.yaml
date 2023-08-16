@@ -7,29 +7,34 @@
 
 #If you want to user your own fully qualifed table names ensure they are accesible via the credentials you specified during (pb connection init)
 
-
 inputs:
   - name: rsIdentifies
-    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_IDENTIFIES # change this to your fully qualifed input table name 
+    app_defaults:
+      table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_IDENTIFIES
     occurred_at_col: timestamp
     ids:
       - select: "user_id"
         type: user_id
         entity: user
+        to_default_stitcher: true
       - select: "anonymous_id"
         type: anonymous_id
         entity: user
+        to_default_stitcher: true
       - select: "lower(email)"
         type: email
         entity: user
-
+        to_default_stitcher: true
   - name: rsTracks
-    table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_TRACKS # change this to your fully qualifed input table name 
+    app_defaults:
+      table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_TRACKS
     occurred_at_col: timestamp
     ids:
       - select: "user_id"
         type: user_id
         entity: user
+        to_default_stitcher: true
       - select: "anonymous_id"
         type: anonymous_id
         entity: user
+        to_default_stitcher: true
