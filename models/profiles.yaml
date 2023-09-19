@@ -9,7 +9,7 @@ models:
       edge_sources:
         - from: inputs/rsIdentifies
         - from: inputs/rsTracks
-  - name: user_profile #name of profiles view that will be created in your warehouse 
+  - name: user_profile #name of profiles view that will be created in your warehouse
     #view is created after (pb run) at the location specified during (pb init connection)
     model_type: feature_table_model
     model_spec:

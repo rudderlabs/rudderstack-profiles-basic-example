@@ -1,7 +1,7 @@
 # For detailed documentation visit: https://www.rudderstack.com/docs/profiles/overview/
 
 # If you ran pb insert
-# use the database and schema configured during your setup (pb connection init) along with the table names below for Tracks and Identifies: 
+# use the database and schema configured during your setup (pb connection init) along with the table names below for Tracks and Identifies:
 # (EXAMPLE_DB.EXAMPLE_SCHEMA.SAMPLE_RS_DEMO_IDENTIFIES)
 # (EXAMPLE_DB.EXAMPLE_SCHEMA.SAMPLE_RS_DEMO_TRACKS)
 
@@ -9,32 +9,51 @@
 
 inputs:
   - name: rsIdentifies
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
+        - name: email
     app_defaults:
       table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_IDENTIFIES
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
-      - select: "lower(email)"
-        type: email
-        entity: user
-        to_default_stitcher: true
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+          to_default_stitcher: true
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
+          to_default_stitcher: true
+        - select: "lower(email)"
+          type: email
+          entity: user
+          to_default_stitcher: true
   - name: rsTracks
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
     app_defaults:
       table: PROFILES_DEMO_DB.RS_PROFILES_7_1.SAMPLE_RS_DEMO_TRACKS
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+          to_default_stitcher: true
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
+          to_default_stitcher: true
