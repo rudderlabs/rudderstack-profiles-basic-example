@@ -18,22 +18,22 @@ models:
       vars:
         - entity_var:
             name: first_seen
-            select: min(timestamp::date)
+            select: min({{rsTracks.Var("timestamp::date")}})
             from: inputs/rsTracks
         - entity_var:
             name: last_seen #all attribute must be specified under "features:" below to write to profiles table -- notice this one is not
-            select: max(timestamp::date)
+            select: max({{rsTracks.Var("timestamp::date")}})
             from: inputs/rsTracks
         - entity_var:
             name: user_lifespan
-            select: last_seen - first_seen
+            select: '{{user.Var("last_seen")}} - {{user.Var("first_seen")}}'
             description: Life Time Value of a customer
             dependencies:
               - first_seen
               - last_seen
         - entity_var:
             name: days_active
-            select: count(distinct timestamp::date)
+            select: count( distinct {{rsTracks.Var("timestamp::date")}})
             from: inputs/rsTracks
             description: No. of days a customer was active
       features:
