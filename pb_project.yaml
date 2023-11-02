@@ -5,7 +5,7 @@
 # Project name
 name: profiles-basic-example
 # Project's yaml schema version
-schema_version: 42
+schema_version: 44
 # Snowflake WH connection to use.
 connection: rs-profiles-test # change this to the profile created from (pb init connection)
 # Whether to allow inputs having no timestamps,
