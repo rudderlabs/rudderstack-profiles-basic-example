@@ -26,15 +26,12 @@ inputs:
         - select: "user_id"
           type: user_id
           entity: user
-          to_default_stitcher: true
         - select: "anonymous_id"
           type: anonymous_id
           entity: user
-          to_default_stitcher: true
         - select: "lower(email)"
           type: email
           entity: user
-          to_default_stitcher: true
   - name: rsTracks
     contract:
       is_optional: false
@@ -52,8 +49,6 @@ inputs:
         - select: "user_id"
           type: user_id
           entity: user
-          to_default_stitcher: true
         - select: "anonymous_id"
           type: anonymous_id
           entity: user
-          to_default_stitcher: true

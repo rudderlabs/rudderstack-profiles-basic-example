@@ -15,28 +15,29 @@ models:
     model_spec:
       validity_time: 24h # 1 day
       entity_key: user
-      vars:
-        - entity_var:
-            name: first_seen
-            select: min({{rsTracks.Var("timestamp::date")}})
-            from: inputs/rsTracks
-        - entity_var:
-            name: last_seen #all attribute must be specified under "features:" below to write to profiles table -- notice this one is not
-            select: max({{rsTracks.Var("timestamp::date")}})
-            from: inputs/rsTracks
-        - entity_var:
-            name: user_lifespan
-            select: '{{user.Var("last_seen")}} - {{user.Var("first_seen")}}'
-            description: Life Time Value of a customer
-            dependencies:
-              - first_seen
-              - last_seen
-        - entity_var:
-            name: days_active
-            select: count( distinct {{rsTracks.Var("timestamp::date")}})
-            from: inputs/rsTracks
-            description: No. of days a customer was active
       features:
         - first_seen
         - user_lifespan
         - days_active
+var_groups:
+  - name: user_vars
+    entity_key: user
+    vars:
+      - entity_var:
+          name: first_seen
+          select: min({{rsTracks.Var("timestamp::date")}})
+          from: inputs/rsTracks
+      - entity_var:
+          name: last_seen
+          select: max({{rsTracks.Var("timestamp::date")}})
+          from: inputs/rsTracks
+          is_feature: false
+      - entity_var:
+          name: user_lifespan
+          select: '{{user.Var("last_seen")}} - {{user.Var("first_seen")}}'
+          description: Life Time Value of a customer
+      - entity_var:
+          name: days_active
+          select: count( distinct {{rsTracks.Var("timestamp::date")}})
+          from: inputs/rsTracks
+          description: No. of days a customer was active
